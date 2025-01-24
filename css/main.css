@@ -1,0 +1,20 @@
+@import 'base.css';
+@import 'components/header.css';
+@import 'components/hero.css';
+@import 'components/sections.css';
+@import 'components/buttons.css';
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header nav ul {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
