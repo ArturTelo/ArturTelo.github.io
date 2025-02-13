@@ -9,14 +9,19 @@
 
 .hero-content {
     max-width: 800px;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 .hero p {
     font-size: 1.5rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.8);
 }

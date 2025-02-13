@@ -1,7 +1,23 @@
+// Add at the beginning of your main.js file
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
+
+// Smooth scroll to top on page refresh
+history.scrollRestoration = 'manual';
+window.onload = function() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+}
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 800,
-    once: true
+    once: true,
+    offset: 100
 });
 
 // Fetch and load content
