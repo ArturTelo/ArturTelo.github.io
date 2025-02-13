@@ -1,0 +1,30 @@
+/* Glass effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Text styles */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #64ffda;
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.text-glow {
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #64ffda, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
