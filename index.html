@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Artur Telo | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <div id="app">
-    <div class="terminal-container">
-      <div class="left-panel">
-        <img src="your-photo.jpg" alt="Artur Telo" class="badge" />
-        <p class="caption">[Interactive 3D Card]</p>
-      </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Artur Telo | Portfolio</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="terminal-container">
+				<div class="left-panel">
+					<img src="your-photo.jpg" alt="Artur Telo" class="badge" />
+					<p class="caption">[Interactive 3D Card]</p>
+				</div>
 
-      <div class="right-panel">
-        <div class="header">
-          <h1><span class="green">Artur Telo</span></h1>
-          <p>Full Stack Developer</p>
-          <div class="commands">
-            <span>help</span> | <span>about</span> | <span>projects</span> | <span>skills</span> | <span>contact</span> | <span>clear</span>
-          </div>
-        </div>
+				<div class="right-panel">
+					<div class="header">
+						<h1><span class="green">Artur Telo</span></h1>
+						<p>Full Stack Developer</p>
+						<div class="commands">
+							<span>help</span> | <span>about</span> | <span>projects</span> |
+							<span>skills</span> | <span>contact</span> | <span>clear</span>
+						</div>
+					</div>
 
-        <div id="terminal-output" class="terminal-output"></div>
+					<div id="terminal-output" class="terminal-output"></div>
 
-        <div class="terminal-input-line">
-          <span class="prompt">artur@portfolio:~$</span>
-          <input type="text" id="terminal-input" placeholder="Type a command..." />
-        <span class="footer-time" id="footer-time"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+					<div class="terminal-input-line">
+						<span class="prompt">artur@portfolio:~$</span>
+						<input
+							type="text"
+							id="terminal-input"
+							placeholder="Type a command..."
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
 
-  <script src="js/script.js"></script>
-</body>
+		<footer class="terminal-footer">
+			<span class="footer-prompt">artur@portfolio:~$</span>
+			<span class="footer-time" id="footer-time"></span>
+		</footer>
+
+		<script src="js/script.js"></script>
+	</body>
 </html>
