@@ -56,16 +56,19 @@ function typeWriterEffect(htmlString, container, callback) {
   function type() {
     if (i < fullText.length) {
       container.innerText += fullText.charAt(i);
+      terminalOutput.scrollTop = terminalOutput.scrollHeight; // 👈 scrolls every char
       i++;
       setTimeout(type, speed);
     } else {
-      container.innerHTML = htmlString; // Restore styled HTML
+      container.innerHTML = htmlString; // restore styled HTML
+      terminalOutput.scrollTop = terminalOutput.scrollHeight; // ensure it's at the bottom
       if (callback) callback();
     }
   }
 
   type();
 }
+
 
 function handleCommand(input) {
   const command = input.trim().toLowerCase();
@@ -95,8 +98,13 @@ function handleCommand(input) {
     );
   }
 
-  // Auto scroll
-  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  setTimeout(() => {
+  terminalOutput.scrollTo({
+    top: terminalOutput.scrollHeight,
+    behavior: 'smooth'
+  });
+}, 50);
+
 }
 
 // Enter key listener
@@ -113,11 +121,10 @@ window.onload = () => {
 };
 
 function updateFooterTime() {
-  const timeEl = document.getElementById('footer-time');
+  const footerTime = document.getElementById('footer-time');
   const now = new Date();
-  timeEl.textContent = now.toLocaleString();
+  footerTime.textContent = now.toLocaleString();
 }
 
-// Update time every second
 setInterval(updateFooterTime, 1000);
-updateFooterTime(); // Initial call
+updateFooterTime(); // Initial update

@@ -14,7 +14,7 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     line-height: 1.5;
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* Root app container */
@@ -46,10 +46,10 @@ body {
     padding: 20px;
 }
 
-/* Right panel */
 .right-panel {
     width: 65%;
     padding: 20px;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -97,10 +97,9 @@ body {
     color: #0ff;
 }
 
-/* Output display */
 .terminal-output {
     flex-grow: 1;
-    color: #fff;
+    max-height: calc(100vh - 250px);
     overflow-y: auto;
     padding-right: 0.5em;
     white-space: pre-wrap;
@@ -229,7 +228,7 @@ input#terminal-input::after {
     font-size: 0.9em;
     background-color: #000;
     color: #00ff00;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 999;
@@ -244,3 +243,28 @@ input#terminal-input::after {
     color: #00ff00;
 }
 
+@media screen and (max-width: 768px) {
+    .terminal-container {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        border-right: none;
+        border-left: none;
+    }
+
+    .right-panel {
+        padding: 10px;
+        padding-bottom: 80px;
+        /* Still keep room for footer */
+    }
+
+    .terminal-footer {
+        font-size: 0.75em;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
