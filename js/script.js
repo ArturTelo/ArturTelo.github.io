@@ -128,3 +128,95 @@ function updateFooterTime() {
 
 setInterval(updateFooterTime, 1000);
 updateFooterTime(); // Initial update
+
+const card = document.getElementById("interactive-card");
+
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let rotationX = 0;
+let rotationY = 0;
+let velocityX = 0;
+let velocityY = 0;
+let animationFrameId = null;
+
+card.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  cancelAnimationFrame(animationFrameId);
+  card.style.transition = "none";
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const deltaX = e.clientX - startX;
+  const deltaY = e.clientY - startY;
+
+  rotationY = Math.max(Math.min(deltaX / 2, 45), -45); // Left-right tilt
+  rotationX = Math.max(Math.min(deltaY / 2, 45), -45); // Up-down tilt
+
+  velocityX = deltaX * 0.4;
+  velocityY = deltaY * 0.4;
+
+  card.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+});
+
+document.addEventListener("mouseup", () => {
+  if (!isDragging) return;
+  isDragging = false;
+  springBack();
+});
+
+function springBack() {
+  function animate() {
+    velocityX *= 0.85;
+    velocityY *= 0.85;
+
+    rotationX -= velocityY;
+    rotationY -= velocityX;
+
+    card.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+
+    if (Math.abs(velocityX) > 0.4 || Math.abs(velocityY) > 0.4) {
+      animationFrameId = requestAnimationFrame(animate);
+    } else {
+      card.style.transition = "transform 0.3s ease-out";
+      card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    }
+  }
+
+  animationFrameId = requestAnimationFrame(animate);
+}
+
+function adjustRopeHeight() {
+  const cardZone = document.querySelector('.card-zone');
+  const rope = document.querySelector('.lanyard-line');
+
+  if (cardZone && rope) {
+    const cardTop = cardZone.getBoundingClientRect().top;
+    rope.style.height = `${cardTop - 30}px`; // minus some offset for margin
+  }
+}
+
+window.addEventListener('load', adjustRopeHeight);
+window.addEventListener('resize', adjustRopeHeight);
+
+function updateRopeHeight() {
+  const leftPanel = document.querySelector('.left-panel');
+  const card = document.getElementById('interactive-card');
+  const rope = document.querySelector('.lanyard-line');
+
+  if (!leftPanel || !card || !rope) return;
+
+  const panelTop = leftPanel.getBoundingClientRect().top;
+  const cardTop = card.getBoundingClientRect().top;
+
+  const height = cardTop - panelTop - 10; // 10px offset for breathing room
+  rope.style.height = `${height}px`;
+}
+
+// Recalculate on load and resize
+window.addEventListener('load', updateRopeHeight);
+window.addEventListener('resize', updateRopeHeight);

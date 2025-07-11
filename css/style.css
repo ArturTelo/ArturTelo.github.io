@@ -34,16 +34,15 @@ body {
     background-color: #000;
 }
 
-/* Left panel */
 .left-panel {
     width: 35%;
     background: radial-gradient(#111 0%, #000 100%);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    border-right: 1px solid #00ff00;
+    align-items: flex-start;
     padding: 20px;
+    border-right: 1px solid #00ff00;
+    position: relative;
 }
 
 .right-panel {
@@ -267,4 +266,80 @@ input#terminal-input::after {
         align-items: flex-start;
         gap: 5px;
     }
+}
+
+.card-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    /* space from top of page */
+    position: relative;
+}
+
+.lanyard-line {
+    width: 6px;
+    height: 100px;
+    background-color: #000;
+    border-left: 2px solid #00ff00;
+    border-right: 2px solid #00ff00;
+}
+
+.lanyard-clip {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    background: #000;
+    margin-bottom: 10px;
+}
+
+.card-wrapper {
+    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    user-select: none;
+}
+
+#interactive-card {
+    width: 220px;
+    height: 320px;
+    border-radius: 16px;
+    border: 1px solid #00ff00;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 0 30px #00ff00;
+    transform-origin: top center;
+    transition: transform 0.1s ease-out;
+    position: relative;
+    cursor: grab;
+    will-change: transform;
+}
+
+#interactive-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+}
+
+.lanyard-line {
+    width: 6px;
+    background-color: #000;
+    border-left: 2px solid #00ff00;
+    border-right: 2px solid #00ff00;
+    transition: height 0.2s ease;
+}
+
+.lanyard-clip {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    background: #000;
+    margin-bottom: 10px;
+    z-index: 2;
 }
