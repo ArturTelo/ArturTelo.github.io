@@ -1,117 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artur Telo | Developer & Creator</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artur Telo | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div class="background-overlay"></div>
-    
-    <header class="header glass-effect">
-        <div class="header-content">
-            <h1 id="site-title" class="fade-in"></h1>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+  <div id="app">
+    <div class="terminal-container">
+      <div class="left-panel">
+        <img src="your-photo.jpg" alt="Artur Telo" class="badge" />
+        <p class="caption">[Interactive 3D Card]</p>
+      </div>
+
+      <div class="right-panel">
+        <div class="header">
+          <h1><span class="green">Artur Telo</span></h1>
+          <p>Full Stack Developer</p>
+          <div class="commands">
+            <span>help</span> | <span>about</span> | <span>projects</span> | <span>skills</span> | <span>contact</span> | <span>clear</span>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 id="hero-title" class="gradient-text"></h1>
-                <p id="hero-subtitle" class="text-glow"></p>
-            </div>
-        </section>
+        <div id="terminal-output" class="terminal-output"></div>
 
-        <section id="about" class="about">
-            <div class="container glass-effect" data-aos="fade-up">
-                <h2 id="about-title" class="section-title"></h2>
-                <p id="about-description" class="section-text"></p>
-                <div class="skills glass-effect" id="skills-container"></div>
-                <a href="/assets/cv.html" target="_blank" class="cta-button glass-effect">View My CV</a>
-            </div>
-        </section>
+        <div class="terminal-input-line">
+          <span class="prompt">artur@portfolio:~$</span>
+          <input type="text" id="terminal-input" placeholder="Type a command..." />
+        <span class="footer-time" id="footer-time"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
-        <section id="projects" class="projects">
-            <div class="container glass-effect">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid" id="projects-container">
-                    <!-- Projects will be dynamically inserted here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials">
-            <div class="container glass-effect" data-aos="fade-up">
-                <h2 class="section-title">What People Say</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                        <p class="testimonial-text">"Artur's technical expertise and creative problem-solving approach made our project a huge success. His attention to detail is remarkable."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JD</div>
-                            <div class="author-info">
-                                <h4>John Doe</h4>
-                                <p>Project Manager</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                        <p class="testimonial-text">"Working with Artur was a fantastic experience. He delivered high-quality code and exceeded our expectations."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MS</div>
-                            <div class="author-info">
-                                <h4>Maria Silva</h4>
-                                <p>Tech Lead</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                        <p class="testimonial-text">"Artur's innovative solutions and professional approach make him an invaluable team member."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RJ</div>
-                            <div class="author-info">
-                                <h4>Robert Johnson</h4>
-                                <p>CTO</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container glass-effect" data-aos="fade-up">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-text">I'm always open to discussing new projects and opportunities.</p>
-                <a href="mailto:up202104487@up.pt" class="contact-button glass-effect">Get in Touch</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="glass-effect">
-        <p>&copy; 2025 Artur Telo. All rights reserved.</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
-    <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
